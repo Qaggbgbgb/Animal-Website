@@ -48,6 +48,11 @@ public Elephant(long animalID, String name,String description, String habitat, S
     this.habitat=habitat;
     this.species=species;
 }
-
+public Elephant(String name,String description, String habitat, String species){
+    this.name=name;
+    this.description=description;
+    this.habitat=habitat;
+    this.species=species;
+}
 
 }
