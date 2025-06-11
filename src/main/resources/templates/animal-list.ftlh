@@ -7,18 +7,25 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
   </head>
   <body>
-    
-        <#list animalList as animal>
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">${animal.name}</h5>
-        <h6 class="card-subtitle mb-2 text-body-secondary">${animal.type}</h6>
-        <p class="card-text">${animal.description}</p>
-        <a href="#" class="card-link">View</a>
-</div>
-</div>
-
-    </#list>
+    <a href="/elephants/createForm" class="btn btn-outline-primary" style="float:right;">Create New Elephant</a>
+        <table class="table table-striped rounded-3 overflow-hidden">
+        <tr>
+            <th>Description</th>
+            <th>Name</th>
+            <th>Picture</th>
+        </tr>
+        <#list elelphantsList as elephant>
+        <tr>
+            <td>
+                <a href="/elephants/${elephant.animalId?c}" style="color:#000000">${elephant.animalId?c}</a>
+            </td>
+            <td>${student.name}</td>
+            <td>
+                <a href="/elephants/description/${elelphant.description}" style="color:#000000">${elelphant.description}</a>
+            </td>
+        </tr>
+        </#list>
+    </table>
     <div class="container text-center"></div>
 <div class="row">
     <div class="col">
