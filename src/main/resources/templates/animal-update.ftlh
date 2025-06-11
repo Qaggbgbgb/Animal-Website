@@ -8,20 +8,18 @@
   </head>
   <body>
     
-
-    <div class="input-group mb-3">
-  <span class="input-group-text" id="basic-addon1">animal name</span>
-  <input type="text" class="form-control" placeholder="Name" aria-label="Name" aria-describedby="basic-addon1">
-</div>
-<div class="input-group mb-3">
-  <span class="input-group-text" id="basic-addon1">animal picture</span>
-  <input type="text" class="form-control" placeholder="Picture" aria-label="Picture" aria-describedby="basic-addon1">
-</div>
-<div class="input-group mb-3">
-  <span class="input-group-text" id="basic-addon1">animal description</span>
-  <input type="text" class="form-control" placeholder="Description" aria-label="Description" aria-describedby="basic-addon1">
-</div>
-    <button type="button" class="btn">submit</button>
+<form id="new-elephant" action="/elephants/update/${elephant.animalId?c}" method="post" enctype="multipart/form-data">
+      <input type="text" id="animalId" name="animalId" value="${elephant.animalId?c}" readonly />
+      <input type="text" id="name" name="name" value="${elephant.name}" placeholder="Name" />
+      <input type="text" id="habitat" name="habitat" value="${elephant.habitat}" placeholder="Habitat" />
+      
+      <input type="text" id="description" name="description" value="${elephant.description}" placeholder="Description" />
+      <input type="text" id="species" name="species"  value="${elephant.species}" placeholder="Species" /><br>
+      <input type="file" id="picture" name="picture" />
+      <button type="submit" class="btn btn-primary">Save</button>
+      <a href="/elephants/${elephant.elephantId?c}" class="btn btn-outline-danger">Cancel</a>
+    </form>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
   </body>
 </html>
