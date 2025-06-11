@@ -55,14 +55,17 @@ public class ElephantController {
   }
 
 @PostMapping("/elephants")
-  public Object addElephant(@RequestBody Elephant elephant) {
-    return elephantService.addElephant(elephant);
+  public Object addElephant( Elephant elephant) {
+    //return elephantService.addElephant(elephant);
+    Elephant newElephant= elephantService.addElephant(elephant);
+    return "redirect:/elephants/" + newElephant.getAnimalID();
   }
 
-@PutMapping("/elephants/{id}")
-  public Elephant updateElephant(@PathVariable Long animalID, @RequestBody Elephant elephant) {
-    elephantService.updateElephant(animalID, elephant);
-    return elephantService.getElephantById(animalID);
+//@PutMapping("/elephants/{id}")
+@PostMapping("/elephants/update/{id}")
+  public Object updateElephant(@PathVariable Long animalId, Elephant elephant) {
+    elephantService.updateElephant(animalId, elephant);
+    return "redirect:/elephants/" +animalId;
   }
 
 @DeleteMapping("/elephants/{id}")
@@ -70,6 +73,21 @@ public class ElephantController {
     elephantService.deleteElephant(animalID);
     return elephantService.getAllElephants();
   }   
+@GetMapping("/elephants/createForm")
+  public Object showCreateForm(Model model) {
+    Elephant elephant = new Elephant();
+    model.addAttribute("elephant", elephant);
+    model.addAttribute("title", "Create New Elephant");
+    return "elephants-create";
+  }
+
+@GetMapping("/elephants/updateForm/{id}")
+  public Object showUpdateForm(@PathVariable Long animalId, Model model) {
+    Elephant elephant = elephantService.getElephantById(animalId);
+    model.addAttribute("elephant", elephant);
+    model.addAttribute("title", "Update Elephant: " + animalId);
+    return "elephants-update";
+  }
 
 
 
