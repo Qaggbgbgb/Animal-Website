@@ -68,10 +68,11 @@ public class ElephantController {
     return "redirect:/elephants/" +animalId;
   }
 
-@DeleteMapping("/elephants/{id}")
+//@DeleteMapping("/elephants/{id}")
+@GetMapping("/elephants/delete/{id}")
   public Object deleteElephant(@PathVariable Long animalID) {
     elephantService.deleteElephant(animalID);
-    return elephantService.getAllElephants();
+    return "redirect:/elephants/";
   }   
 @GetMapping("/elephants/createForm")
   public Object showCreateForm(Model model) {

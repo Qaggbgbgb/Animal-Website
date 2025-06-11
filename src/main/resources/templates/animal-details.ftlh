@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
 </head>
 <body>
+
 <ul class="list-group">
   <li class="list-group-item">1.There are 17 muscles in an elephant's trunk.</li>
   <li class="list-group-item">2.Elephant pregnancies take up to 22 months, and their babies can weigh as much as 350 pounds (159 kg).</li>
@@ -26,6 +27,29 @@
   <li><a class="dropdown-item" href="about.html">about</a></li>
 </ul>
 </div>
+
+<div class="container" style="margin-top: 15px;">
+    <h1>${title}</h1>
+    <div class="card">
+      <h5 class="card-header">${elephants.name}</h5>
+      <img src="/profile-pictures/${(elephant.profilePicturePath)!'avatar.png'}" class="card-img-top"
+        style="height: 100px; width: 100px;" alt="profile picture">
+      <div class="card-body">
+        <span style="float:right"> <a href="/elephants/updateForm/${elephant.animalId?c}" class="btn btn-primary">Edit
+            Elephant</a></span>
+        <h5 class="card-title">ID: ${elephant.animalId?c}</h5>
+        <p class="card-text">Description: ${elephant.description}</p>
+        <p class="card-text">Name: ${elephant.name}</p>
+        <p class="card-text">Habitat: ${elephant.habitat}</p>
+        <p class="card-text">Species: ${elephant.species}</p>
+        <a href="/Elephants/delete/${elephant.animalId?c}" class="btn btn-danger">Delete
+          Elephant</a>
+
+        <a href="/elephants" class="btn btn-primary">Go back</a>
+      </div>
+    </div>
+
+  </div>
 </body>
 
 </html>
